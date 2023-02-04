@@ -11,6 +11,7 @@ import cors from 'cors';
 appE.use(express.json())
 appE.post('/addlisting', (req, res) => {
   console.log(req.body); 
+  addListing(req.body);
   res.send("a")
 })
 
@@ -52,3 +53,10 @@ async function main()
   })
 }
 main();
+
+async function addListing(info)
+{
+      // Add a new document with a generated id.
+    const docRef = await addDoc(collection(db, "listings"), info);
+   console.log("Document written with ID: ", docRef.id);
+}
