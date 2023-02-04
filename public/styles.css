@@ -44,6 +44,11 @@ table, th, td {
     transition-duration: 0.4s;
 }
 
+#exampleFormControlInput2 {
+    height: 50px;
+    width: 50px;
+}
+
 /*
     For buttons, you can style them differently based on if the mouse is hovering over them or not.
     This can be done using :hover after the button name.
