@@ -24,6 +24,8 @@ function anyValsMissing(li) {
 const btn = document.querySelector("#submitListingBtn");
 btn.addEventListener('click', function(e) {
 
+    e.preventDefault();
+
     // Strings
     itemTitle = document.getElementById('item-title').value
     description = document.getElementById('description').value
