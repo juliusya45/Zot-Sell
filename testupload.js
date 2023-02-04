@@ -36,4 +36,17 @@ async function testAdd()
         user: 'Julius'
     })
 }
-testAdd();
+//testAdd();
+
+//template to add item with generated doc id
+async function testAddID()
+{
+    // Add a new document with a generated id.
+const res = await db.collection('cities').add({
+    name: 'Tokyo',
+    country: 'Japan'
+  });
+  
+  console.log('Added document with ID: ', res.id);
+}
+testAddID();
