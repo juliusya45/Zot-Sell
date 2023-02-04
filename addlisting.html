@@ -33,31 +33,31 @@
                 <form>
                     <label for="exampleFormControlInput1" class="form-label">ITEM TITLE</label><br>
                     
-                    <input id="exampleFormControlInput1" placeholder="Petr Bucket Hat"  required><br><br>
+                    <input id="item-title" placeholder="Petr Bucket Hat"  required><br><br>
 
-                    <label for="exampleFormControlInput2" class="form-label">ITEM DESCRIPTION</label><br>
+                    <label for="description" class="form-label">ITEM DESCRIPTION</label><br>
                     
-                    <textarea rows="10" cols="50" name="exampleFormControlInput2" placeholder="A lovely top for any UCI-spirited outfit!" required></textarea><br><br>
+                    <textarea rows="10" cols="50" id="description" name="description" placeholder="A lovely top for any UCI-spirited outfit!" required></textarea><br><br>
 
                     <label for="price">Price ($)</label><br>
 
-                    <input type="number" step="0.01" name="price" required/><br><br>
+                    <input type="number" step="0.01" id="price" name="price" required/><br><br>
 
                     <label for="date-posted" class="form-label">DATE POSTED</label><br>
 
-                    <input type="date" name="date-posted" id="dateposted" required/><br><br>
+                    <input type="date" name="date-posted" id="date-posted" required/><br><br>
 
                     <label for="quantity" class="form-label">QUANTITY AVAILABLE</label><br>
 
-                    <input id="number" name="quantity" type="number" min="1" required/><br><br>
+                    <input id="quantity" name="quantity" type="number" min="1" required/><br><br>
 
                     <label for="exampleFormControlInput5" class="form-label">PHONE #</label><br>
 
-                    <input type="tel" placeholder="(xxx) xxx-xxxx" required/><br><br>
+                    <input type="tel" id="phone-num" placeholder="(xxx) xxx-xxxx" required/><br><br>
 
                     <label for="meeting-spot" class="form-label">PREFERRED MEETING SPOT (OPTIONAL)</label><br>
 
-                    <input name="meeting-spot"/><br><br>
+                    <input id ="meeting-spot" name="meeting-spot"/><br><br>
 
                     <label for="img">Select image:</label><br>
                     
@@ -65,16 +65,16 @@
 
                     <label for="tags">Tag(s)</label><br>
 
-                    <input type="checkbox" id="opt1" name="opt1" value="clothing/accessories">
-                    <label for="opt1"> Clothing/Accessories</label><br>
-                    <input type="checkbox" id="opt2" name="opt2" value="electronics">
-                    <label for="opt2"> Electronics</label><br>
-                    <input type="checkbox" id="opt3" name="opt3" value="shoes">
-                    <label for="opt3"> Shoes</label><br>
-                    <input type="checkbox" id="opt4" name="opt4" value="athletics">
-                    <label for="opt4"> Athletics</label><br>
-                    <input type="checkbox" id="opt5" name="opt5" value="jewelry">
-                    <label for="opt5"> Jewelry</label><br><br>
+                    <input type="checkbox" id="clothing" name="clothing" value="clothing/accessories">
+                    <label for="clothing"> Clothing/Accessories</label><br>
+                    <input type="checkbox" id="electronics" name="electronics" value="electronics">
+                    <label for="electronics"> Electronics</label><br>
+                    <input type="checkbox" id="shoes" name="shoes" value="shoes">
+                    <label for="shoes"> Shoes</label><br>
+                    <input type="checkbox" id="athletics" name="athletics" value="athletics">
+                    <label for="athletics"> Athletics</label><br>
+                    <input type="checkbox" id="jewelry" name="jewelry" value="jewelry">
+                    <label for="jewelry"> Jewelry</label><br><br>
         
                     <input type="submit" id="submitListingBtn"></button>
                 </form>
