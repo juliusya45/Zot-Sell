@@ -1,1 +1,4 @@
+node_modules
+zot-list-firebase-adminsdk.json
+.DS_Store
 .env

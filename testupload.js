@@ -2,15 +2,10 @@
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000;
-const cors = require('cors');
-
 var dotenv = require('dotenv');
 dotenv.config();
 
-//Initializing Firebase
+//Initializing Firebase, Ideally only in index
 var admin = require("firebase-admin");
 //actual intialization
 admin.initializeApp({
@@ -28,25 +23,17 @@ admin.initializeApp({
   })
 });
 
-
-
-//sets db to the database in the firestore
 const db = getFirestore();
 
-async function main()
+async function testAdd()
 {
     //creates database
-    const docRef = db.collection('users').doc('alovelace');
-    //sets database
+    const docRef = db.collection('test').doc('a listing');
+    
     await docRef.set({
-         first: 'Ada',
-         last: 'Lovelace',
-         born: 1815
-    });
-
-    app.use(cors())
-    app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+        title: 'This is a listing',
+        time: new Date().toISOString(),
+        user: 'Julius'
+    })
 }
-main();
+testAdd();
