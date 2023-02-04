@@ -29,7 +29,6 @@ admin.initializeApp({
 });
 
 
-
 //sets db to the database in the firestore
 const db = getFirestore();
 
