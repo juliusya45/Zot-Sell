@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore"; 
+import { getDoc } from "firebase/firestore";
 
 import express from 'express';
 const appE = express()
