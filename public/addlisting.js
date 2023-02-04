@@ -12,6 +12,8 @@ let isShoes;
 let isAthletics;
 let isJewelry;
 
+
+
 function anyValsMissing(li) {
     for (let i = 0; i < li.length; i++) {
         if (!li[i]) {
@@ -22,8 +24,10 @@ function anyValsMissing(li) {
 }
 
 const btn = document.querySelector("#submitListingBtn");
-btn.addEventListener('click', function() {
-    
+btn.addEventListener('click', function(e) {
+
+    e.preventDefault();
+
     // Strings
     itemTitle = document.getElementById('item-title').value
     description = document.getElementById('description').value
@@ -75,10 +79,17 @@ async function sendFormData(url='', data={})
         isShoes: isShoes,
         isAthletics: isAthletics,
         isJewelry: isJewelry
-
     };
-    
-    
 
-    
+    fetch('/addlisting', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(listing)
+    }).then(res => {
+        console.log('AOTAJIOJAFOIDOF')
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log('Form POST error.'))
 }
