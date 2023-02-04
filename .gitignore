@@ -1,3 +1,4 @@
 node_modules
-.env
 zot-list-firebase-adminsdk-x72x0-bf760e36ff.json
+.DS_Store
+.env
