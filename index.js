@@ -8,6 +8,14 @@ const appE = express()
 const port = process.env.PORT || 3000;
 import cors from 'cors';
 
+appE.use(express.json())
+appE.post('/addlisting', (req, res) => {
+  console.log(req.body); 
+  res.send("a")
+})
+
+appE.use('/public', express.static('public'))
+
 //change from require to import
 import { config } from 'dotenv';
 config();
@@ -26,6 +34,8 @@ const firebaseConfig = {
 //init variables for firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+
 
 async function main()
 {
