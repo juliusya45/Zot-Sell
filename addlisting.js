@@ -22,8 +22,8 @@ function anyValsMissing(li) {
 }
 
 const btn = document.querySelector("#submitListingBtn");
-btn.addEventListener('click', function() {
-    
+btn.addEventListener('click', function(e) {
+
     // Strings
     itemTitle = document.getElementById('item-title').value
     description = document.getElementById('description').value
@@ -75,10 +75,17 @@ async function sendFormData(url='', data={})
         isShoes: isShoes,
         isAthletics: isAthletics,
         isJewelry: isJewelry
-
     };
-    
-    
 
-    
+    fetch('/index.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(listing)
+    }).then(res => {
+        console.log('AOTAJIOJAFOIDOF')
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log('Form POST error.'))
 }
