@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load CSS and JS files -->
+    <!-- 
+        Load your custom scripts!
+        These can retrieve and send data for the frontend,
+        as well as change the way the website looks!
+    -->
+        <link rel="stylesheet" href="styles.css">
+    <title>My App</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Integrating HTML, CSS and JS -->
+        <!-- 
+            This chunk of the site uses HTML, CSS and JS. If you look in script.js,
+            you can see how you can use JS to select elements from the HTML document.
+            If you look in styles.css, you can see how you can use CSS to style elements
+            in the HTML document.
+            By using the ids of each of the elements, both the JS and CSS files are able to
+            extract and modify the elements without having to do so in index.html. Otherwise,
+            if everything is in one file, the code will look extremely messy!
+            Here, we have a greeting initially called "Hello, world". However, using JS, you can
+            change the greeting to a custom input by clicking the button.
+        -->
+        <h1 id="greeting">Hello, world!</h1>
+        <div>
+            <div>
+                <label for="exampleFormControlInput1" class="form-label">What is your name?</label>
+                <input id="exampleFormControlInput1" placeholder="Peter the Anteater">
+            </div>
+            <button type="submit" id="exampleFormBtn">Submit</button>
+        </div>
+        <br/>
+
+        <!-- Texts in HTML -->
+        <!-- 
+            There are diffent types of text elements, but the most common ones are header, paragraph, and anchor elements.
+            Headers go from h1 to h6, paragraph elements (p) are simply normal text, and anchor elements (a) are links
+            that can wrap around other elements (text and images) and link to another site using the href attribute.
+        -->
+        <div class="text">
+            <h1>Let's take a look at some simple texts. This is an example of a header.</h1>
+            <h2>This is a subheader.</h2>
+            <h3>This is a subsubheader and this repeats until h6.</h3>
+            <p>
+                And now this is a regular paragraph text. You type your paragraphs, essays, descriptions,
+                all the other nice stuff here. 
+                Ooh look a <a href="https://youtu.be/grd-K33tOSM">link</a>
+            </p>
+            <p>
+                Notice how this entire section has a violet-ish background,
+                and all the text in it is white. This is what happens if you apply a CSS style to a class.
+                But what if you want all h4 elements in this class to have a certain different style?
+            </p>
+            <h4>Now you can if you target the h4 within a class. So the style applies here.</h4>
+        </div>
+        <h4>But not here, even though they're both h4 headers.</h4>
+        
+        <!-- Lists in HTML -->
+        <!-- 
+            There are two types of lists, unordered (ul) and ordered (ol). Unordered lists have list
+            items (li) without any specific order given to them like bullet points, whereas ordered lists
+            have their list items ordered/numbered. 
+        -->
+        <div class="lists">
+            <h2>Lists</h2>
+            <p>
+                There are two types of lists, unordered (ul) and ordered (ol). Both list elements containts list items (li).
+                However, the difference between the two is that unordered lists do not number/label the elements, and simply
+                list them as bullet points, while ordered lists do number/label them.
+            </p>
+            <div class="list-box">
+                <div class="unordered">
+                    <p>A List of A Couple ICS Organizations</p>
+                    <ul>
+                        <li><a href="https://hack.ics.uci.edu/">Hack at UCI</a></li>
+                        <li><a href="https://studentcouncil.ics.uci.edu/">ICSSC</a></li>
+                        <li><a href="https://wics.ics.uci.edu/">WICS</a></li>
+                        <li><a href="https://acm-uci.org/">ACM</a></li>
+                        <li><a href="https://designatuci.com/">Design at UCI</a></li>
+                        <li><a href="https://ctc-uci.com/">CTC</a></li>
+                        <li><a href="https://www.dataatuci.com/">Data at UCI</a></li>
+                        <li><a href="https://aiclub.ics.uci.edu/">AI at UCI</a></li>
+                        <li><a href="https://www.maissuci.com/">MAISS</a></li>
+                    </ul>
+                </div>
+                <div class="ordered">
+                    <p>A List of Some Hack Events</p>
+                    <ol>
+                        <li><a href="https://zothacks.com/">ZotHacks</a></li>
+                        <li>HackUCI</li>
+                        <li>VenusHacks</li>
+                        <li>HackNights</li>
+                        <li>Scratch-a-thon</li>
+                        <li>Binary Search</li>
+                        <li>Resume Workshop</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tables in HTML -->
+        <h2>Tables</h2>
+        <p>
+            You can also create tables in HTML. Within a table element (table), there are table row elements (tr).
+            Within those table row elements, there are table headers cells (th) which would be the very first tr in the table,
+            and the table data cells (td) would be where you fill in the information.
+        </p>
+        <table>
+            <tr>
+              <th>Course</th>
+              <th>Course Name</th>
+              <th>Professor(s)</th>
+            </tr>
+            <tr>
+              <td>ICS 31</td>
+              <td>Introduction to Programming</td>
+              <td>Alfaro</td>
+            </tr>
+            <tr>
+                <td>ICS 32</td>
+                <td>Programming with Software Libraries</td>
+                <td>Ibrahim, Nash, Krone-Martins</td>
+            </tr>
+            <tr>
+                <td>ICS 32A</td>
+                <td>Python Programming and Libraries (Accelerated)</td>
+                <td>Thornton, Krone-Martins</td>
+            </tr>
+            <tr>
+                <td>ICS 33</td>
+                <td>Intermediate Programming</td>
+                <td>Thornton</td>
+            </tr>
+            <tr>
+                <td>ICS 45C</td>
+                <td>Programming in C/C++ as a Second Language</td>
+                <td>Ibrahim, Klefstad</td>
+            </tr>
+            <tr>
+                <td>ICS 46</td>
+                <td>Data Structure Implementation and Analysis</td>
+                <td>Shindler, Klefstad</td>
+            </tr>
+            <tr>
+                <td>ICS 51</td>
+                <td>Introductory Computer Organization</td>
+                <td>Wong-ma, Bozorgzadeh, Nicolau</td>
+            </tr>
+            <tr>
+                <td>ICS 53</td>
+                <td>Principles in System Design</td>
+                <td>Wong-ma, Harris</td>
+            </tr>
+          </table>
+
+        <!-- The Box Model -->
+        <!-- 
+            This is an interactive playground for you to have fun with CSS's box model (although you 
+            can mess with everything here, its just a starter-pack after all). 
+
+            Below you can find a new element, the image element (img), which in its bare-form
+            takes in the src, which is the link to the image, and the alt, alternative text if the 
+            image fails to load. It is good practice for all img elements to have an alt.
+        -->
+        <h2>The Box Model</h2>
+        <img src="box_model.PNG" alt="Box Model" style="height: 25%; width: 25%;">
+        <p>
+            Many people who start working in CSS struggle with the differences between
+            padding, border and margin. Instead of explaining through words (boring!),
+            here is a play space to mess around with them and see what happens.
+            Go ahead to styles.css and change some of the values and see what happens.
+        </p>
+        <div id="the-box">
+            <p id="content1">This is the content.</p>
+            <p id="content2">This is also content.</p>
+        </div>
+
+        <!-- Animation is Hard -->
+        <!-- 
+            Animation is hard, go to styles.css for a brief explanation.
+        -->
+        <h2>Animation</h2>
+        <p>Here is Petr spinning. That is all</p>
+        <a href="https://youtu.be/GtL1huin9EE"><img id="petr" src="petr.png" alt="petr"></a>
+    </div>
+    
+    <!-- Load scripts at the end of your HTML to make pages load faster! -->
+    <script src="script.js"></script>
+</body>
+</html>
