@@ -1,21 +1,52 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+//Getting required Firebase Libs
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_KEY,
-  authDomain: "zot-list.firebaseapp.com",
-  projectId: "zot-list",
-  storageBucket: "zot-list.appspot.com",
-  messagingSenderId: "244866013444",
-  appId: "1:244866013444:web:f5dba10f186de991bdd851",
-  measurementId: "G-TFPEXBWSY0"
-};
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000;
+const cors = require('cors');
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+var dotenv = require('dotenv');
+dotenv.config();
+
+//Initializing Firebase
+var admin = require("firebase-admin");
+//actual intialization
+admin.initializeApp({
+  credential: admin.credential.cert({
+    type: "service_account",
+    project_id: process.env.PROJECT_ID,
+    private_key_id: process.env.PRIVATE_KEY_ID,
+    private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+    client_email: process.env.CLIENT_EMAIL,
+    client_id: process.env.CLIENT_ID,
+    auth_uri: "https://accounts.google.com/o/oauth2/auth",
+    token_uri: "https://oauth2.googleapis.com/token",
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+    client_x509_cert_url: process.env.CLIENT_CERT_URL
+  })
+});
+
+
+
+//sets db to the database in the firestore
+const db = getFirestore();
+
+async function main()
+{
+    //creates database
+    const docRef = db.collection('users').doc('alovelace');
+    //sets database
+    await docRef.set({
+         first: 'Ada',
+         last: 'Lovelace',
+         born: 1815
+    });
+
+    app.use(cors())
+    app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
+}
+main();
