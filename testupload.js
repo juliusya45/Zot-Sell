@@ -25,6 +25,7 @@ admin.initializeApp({
 
 const db = getFirestore();
 
+//Example of how to explicitly add entry with doc name
 async function testAdd()
 {
     //creates database
@@ -32,11 +33,12 @@ async function testAdd()
     
     await docRef.set({
         title: 'This is a listing',
-        time: new Date().toISOString(),
+        time: Timestamp.now(),
+        testtime: new Date().toISOString(),
         user: 'Julius'
     })
 }
-//testAdd();
+testAdd();
 
 //template to add item with generated doc id
 async function testAddID()
@@ -49,4 +51,16 @@ const res = await db.collection('cities').add({
   
   console.log('Added document with ID: ', res.id);
 }
-testAddID();
+//testAddID();
+
+async function getData()
+{
+    const cityRef = db.collection('cities').doc('1JqIrsktR8FKosr4z4zr');
+        const doc = await cityRef.get();
+    if (!doc.exists) {
+        console.log('No such document!');
+    } else {
+        console.log('Document data:', doc.data());
+}
+}
+getData();
