@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore"; 
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc} from "firebase/firestore";
 import { getDoc } from "firebase/firestore";
 
 import express from 'express';
@@ -12,9 +12,8 @@ import cors from 'cors';
 
 appE.use(express.json())
 appE.post('/addlisting', (req, res) => {
-  console.log(req.body); 
+  console.log(req.body);
   addListing(req.body);
-  res.send("a")
 })
 
 appE.use('/public', express.static('public'))
