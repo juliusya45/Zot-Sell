@@ -3,6 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore"; 
 import { collection, addDoc } from "firebase/firestore"; 
 import { getDoc } from "firebase/firestore";
+import { getDocs } from "firebase/firestore";
 
 import { config } from 'dotenv';
 config();
@@ -44,7 +45,7 @@ async function testAddID()
     });
     console.log("Document written with ID: ", docRef.id);
 }
-testAddID();
+//testAddID();
 
 async function getData()
 {
@@ -58,4 +59,15 @@ async function getData()
         console.log("No such document!");
     }
 }
-getData();
+//getData();
+
+async function getAll()
+{
+
+    const querySnapshot = await getDocs(collection(db, "listings"));
+    querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
+}
+getAll();
