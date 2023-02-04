@@ -1,9 +1,9 @@
-//Getting required Firebase Libs
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore"; 
 
-var dotenv = require('dotenv');
-dotenv.config();
+import { config } from 'dotenv';
+config();
 
 //Initializing Firebase, Ideally only in index
 var admin = require("firebase-admin");
