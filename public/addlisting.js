@@ -12,6 +12,8 @@ let isShoes;
 let isAthletics;
 let isJewelry;
 
+
+
 function anyValsMissing(li) {
     for (let i = 0; i < li.length; i++) {
         if (!li[i]) {
@@ -23,6 +25,8 @@ function anyValsMissing(li) {
 
 const btn = document.querySelector("#submitListingBtn");
 btn.addEventListener('click', function(e) {
+
+    e.preventDefault();
 
     // Strings
     itemTitle = document.getElementById('item-title').value
@@ -77,7 +81,7 @@ async function sendFormData(url='', data={})
         isJewelry: isJewelry
     };
 
-    fetch('/index.js', {
+    fetch('/addlisting', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
