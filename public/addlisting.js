@@ -12,8 +12,6 @@ let isShoes;
 let isAthletics;
 let isJewelry;
 
-
-
 function anyValsMissing(li) {
     for (let i = 0; i < li.length; i++) {
         if (!li[i]) {
@@ -60,6 +58,7 @@ btn.addEventListener('click', function(e) {
 
     if (!anyValsMissing(requiredVals)) {
         sendFormData();
+        window.location.href = "index.html";
     }
 
 });

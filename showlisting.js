@@ -25,7 +25,8 @@ const db = getFirestore(app);
 //each doc is passed into this fucntion
 //this function has access to all fields
 function showListing(d) {
-
+  let type = 'ul'
+  //d.data().itemTitle = 
 }
 
 //gets data from listing
