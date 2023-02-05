@@ -42,12 +42,11 @@ function showListing(d) {
 //gets data from listing
 async function main()
 {
-
-  const querySnapshot = await getDocs(collection(db, "listings"));
-  querySnapshot.forEach((doc) => {
-    // showListing(doc);
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data().itemTitle);
-  });
+    const querySnapshot = await getDocs(collection(db, "listings"));
+    querySnapshot.forEach((doc) => {
+  showListing(doc);
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
 }
 main();

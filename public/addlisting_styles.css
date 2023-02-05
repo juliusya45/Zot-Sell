@@ -8,12 +8,13 @@
 	font-family: "Roboto";
 }
 body{
-    background-image: url("ME.jpg");
+    background-image: url("sean.jpg");
 	background-color: #f6e2bc;
 	background-position: center;
     background-origin: content-box;
     background-repeat: no-repeat;
     background-size: cover;
+	background-attachment: fixed;
 	min-height:100vh;
 	font-family: "Roboto";
 }
@@ -28,10 +29,10 @@ body{
 .box{
 	position:absolute;
 	left:50%;
-	top:50%;
+	top:75%;
 	transform: translate(-50%,-50%);
     background-color: #3b7097cc;
-	border-radius:3px;
+	border-radius:3px;	
 	padding:70px 100px;
 }
 .input-container{
@@ -74,6 +75,18 @@ body{
 	cursor:pointer;
 	position:relative;
 }
+#Date{
+	color:#fff;
+}
+
+#image_label{
+	color:#fff;
+}
+
+.text{
+	color: #fff;
+}
+
 /*.btn:after{
 	content:"";
 	position:absolute;
