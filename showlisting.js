@@ -7,10 +7,10 @@ import { collection } from "firebase/firestore";
 import { config } from 'dotenv';
 config();
 
+import express from 'express';
 const appE = express();
 
 appE.use(express.json())
-
 
 appE.use('public', express.static('public'))
 

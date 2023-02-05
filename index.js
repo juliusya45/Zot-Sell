@@ -16,7 +16,7 @@ appE.post('/addlisting', (req, res) => {
   console.log(req.body);
   addListing(req.body);
 })
-appE.get('/showlistings', (req, res) => {
+appE.get('http://localhost:3000/showlistings', (req, res) => {
   console.log(req.body)
   console.log(res)
 })
