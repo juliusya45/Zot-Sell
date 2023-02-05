@@ -11,6 +11,7 @@ let isElectronics;
 let isShoes;
 let isAthletics;
 let isJewelry;
+let bimg;
 
 function anyValsMissing(li) {
     for (let i = 0; i < li.length; i++) {
@@ -23,8 +24,17 @@ function anyValsMissing(li) {
 
 const btn = document.querySelector("#submitListingBtn");
 btn.addEventListener('click', function(e) {
-
+    
     e.preventDefault();
+    
+    var input = document.querySelector('input[type=file]');;
+    function changeFile() {
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.addEventListener('load', readFile);
+        reader.readAsArrayBuffer(file);
+        console.log("read");
+    }
 
     // Strings
     itemTitle = document.getElementById('item-title').value
@@ -47,19 +57,46 @@ btn.addEventListener('click', function(e) {
     isShoes = document.getElementById('shoes').checked
     isAthletics = document.getElementById('athletics').checked
     isJewelry = document.getElementById('jewelry').checked
+    changeFile();
+    console.log('yo yo!');
 
-    console.log('yo yo!')
+    function readFile(event) {
+        //converts img to blob file
+        bimg = event.target.result;
+        console.log(bimg instanceof ArrayBuffer);
+        // var binaryString = String.fromCharCode.apply(null, new Uint8Array(buffer));
+        // bimg = btoa(binaryString);
+        // //bimg = String.fromCharCode.apply(null, new Uint8Array(bimg))
+        // bimg = bimg.toString();
+        // console.log(bimg);
+        //bimg = u_btoa(bimg);
+};
 
-    console.log([itemTitle, description, price, datePosted, quantity, 
-    phoneNum, meetingSpot, img, isNew, isGood, isAcceptable, isClothing, isElectronics, isShoes, isAthletics, isJewelry])
+// function u_btoa(buffer) {
+//     var binary = [];
+//     var bytes = new Uint8Array(buffer);
+//     for (var i = 0, il = bytes.byteLength; i < il; i++) {
+//         binary.push(String.fromCharCode(bytes[i]));
+//     }
+//     return btoa(binary.join(''));
+// }
+  
 
+  //input.addEventListener('change', changeFile);
+  console.log([itemTitle, description, price, datePosted, quantity, 
+    phoneNum, meetingSpot, img, isNew, isGood, isAcceptable, isClothing, isElectronics, isShoes, isAthletics, isJewelry, bimg])
+    //console.log({"img": bimg})
+    
     requiredVals = [itemTitle, description, price, datePosted, quantity, 
         phoneNum, img]
-
+    
     if (!anyValsMissing(requiredVals)) {
-        sendFormData();
+        
         // window.location.href = "index.html";
     }
+    sendFormData();
+
+
 
 });
 
@@ -90,6 +127,8 @@ async function sendFormData(url='', data={})
         phoneNum: phoneNum,
         meetingSpot: meetingSpot,
         img: img,
+        //sends blob image into JSON to be dealt with in inbimgdex
+        picture: bimg,
         isClothing: isClothing,
         isElectronics: isElectronics,
         isShoes: isShoes,
@@ -100,12 +139,12 @@ async function sendFormData(url='', data={})
         isAcceptable: isAcceptable
     };
 
-    fetch('/addlisting', {
+    fetch('http://localhost:3000/addlisting', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(listing)
+        body: JSON.stringify(listing)  
     }).then(res => {
         console.log('AOTAJIOJAFOIDOF')
     })
@@ -114,3 +153,4 @@ async function sendFormData(url='', data={})
 
 
 }
+

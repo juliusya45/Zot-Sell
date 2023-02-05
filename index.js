@@ -1,10 +1,10 @@
 //Getting required Firebase Libs
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, waitForPendingWrites } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore"; 
 import { collection, addDoc} from "firebase/firestore";
-import { getDoc } from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 import express from 'express';
 const appE = express()
@@ -14,7 +14,8 @@ import cors from 'cors';
 appE.use(express.json())
 appE.post('/addlisting', (req, res) => {
   console.log(req.body);
-  addListing(req.body);
+  //addListing(req.body);
+  addImg(req.body);
 })
 
 appE.use('/public', express.static('public'))
@@ -31,7 +32,8 @@ const firebaseConfig = {
   storageBucket: "zot-list.appspot.com",
   messagingSenderId: "244866013444",
   appId: "1:244866013444:web:b95109880464ce93bdd851",
-  measurementId: "G-9TGHEHLNVF"
+  measurementId: "G-9TGHEHLNVF",
+  storageBucket: 'gs://zot-list.appspot.com'
 };
 
 //init variables for firebase
@@ -55,6 +57,34 @@ async function main()
   })
 }
 main();
+
+async function addImg(info)
+{
+  console.log(info);
+  //var bytearray = Uint8Array.from(atob(info["picture"]), c => c.charCodeAt(0));
+  var bytearray = Uint8Array.from(atob(info["picture"]), c => c.charCodeAt(0));
+  // Create a root reference
+  const storage = getStorage();
+  var imgName = new Date() + '-' + '.png';
+  // Create a reference to 'mountains.jpg'
+  const picRef = ref(storage, imgName);
+
+  // Create a reference to 'images/mountains.jpg'
+  const ImagesPicRef = ref(storage, 'images/'+imgName);
+
+// While the file names are the same, the references point to different files
+picRef.name === ImagesPicRef.name;           // true
+picRef.fullPath === ImagesPicRef.fullPath;   // false 
+
+  const storageRef = ref(storage, ImagesPicRef);
+
+    // 'file' comes from the Blob or File API
+  await uploadBytes(storageRef, bytearray).then((snapshot) => {
+    console.log('Uploaded a blob or file! with name: ' + imgName);
+  });
+  info["picture"] = imgName;
+  await addListing(info);
+}
 
 async function addListing(info)
 {
