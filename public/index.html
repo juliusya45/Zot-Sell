@@ -10,285 +10,15 @@
         These can retrieve and send data for the frontend,
         as well as change the way the website looks!
     -->
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="Index_styles.css">
     <title>Zeggs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-        .container1{
-            background-color: #a2d5ab;
-            width: 25%;
-            position: relative;
-            max-width: 480px;
-            display:inline-flex;
-        }
-        .container2{
-            background-color: aqua;
-            max-width: 1440px;
-            display: inline-flex;
-        }
-        .main-header{
-            background-color: #a2d5ab;
-            color:darkgreen;
-            height: 70px;
-            
-        }
-        .main-headertext{
-            color: white;
-            font-family:'Courier New';
-            font-size: 40px;
-            transform: translateY(20%);
-            margin-left: 25px;
-            text-shadow:
-            1px 1px 0 #000;
-        }
-        .button1 {
-            align-items: center;
-            appearance: none;
-            background-color: #39AEA9;
-            background-size: calc(100% + 20px) calc(100% + 20px);
-            border-radius: 125px;
-            border-width: 2px;
-            border-color: black;
-            box-shadow: none;
-            box-sizing: border-box;
-            color: #efeadd;
-            cursor: pointer;
-            display: inline-flex;
-            font-family: CircularStd,sans-serif;
-            font-size: 1rem;
-            justify-content: center;
-            line-height: 1.5;
-            padding: 10px 40px;
-            position: relative;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color .2s,background-position .2s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            vertical-align: top;
-            white-space: nowrap;
-            margin-left: 10px;
-            margin-right: 10px;
-            transform: translateY(25%);
-        }
-
-/* CSS */
-        .button-28 {
-            appearance: none;
-            background-color: transparent;
-            border: 2px solid #1A1A1A;
-            border-radius: 15px;
-            box-sizing: border-box;
-            color: #3B3B3B;
-            cursor: pointer;
-            display: inline-block;
-            font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-            font-size: 16px;
-            font-weight: 600;
-            line-height: normal;
-            margin-left: 10px;
-            margin-right: 10px;
-            min-height: 60px;
-            min-width: 0;
-            outline: none;
-            padding: 16px 36px;
-            text-align: center;
-            text-decoration: none;
-            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            will-change: transform;
-            transform: translateY(5%);
-        }
-
-        .button-28:disabled {
-            pointer-events: none;
-        }
-
-        .button-28:hover {
-            color: #fff;
-            background-color: #1A1A1A;
-            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-            transform: translateY(-2px);
-        }
-
-        .button-28:active {
-            box-shadow: none;
-            transform: translateY(0);
-        }
-/* CSS */
-        .button-86 {
-            all: unset;
-            width: 100px;
-            height: 30px;
-            font-size: 16px;
-            background: transparent;
-            border: none;
-            position: relative;
-            color: white;
-            cursor: pointer;
-            z-index: 1;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            display: inline-flex;
-            margin-left: 25px;
-            margin-right: 30px;
-            transform: translateY(15%);
-        }
-
-        .button-86::after,
-        .button-86::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: -99999;
-        transition: all .4s;
-        }
-
-        .button-86::before {
-        transform: translate(0%, 0%);
-        width: 100%;
-        height: 100%;
-        background: #28282d;
-        border-radius: 10px;
-        }
-
-        .button-86::after {
-        transform: translate(10px, 10px);
-        width: 35px;
-        height: 35px;
-        background: #ffffff15;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border-radius: 50px;
-        }
-
-        .button-86:hover::before {
-        transform: translate(5%, 20%);
-        width: 110%;
-        height: 110%;
-        }
-
-        .button-86:hover::after {
-        border-radius: 10px;
-        transform: translate(0, 0);
-        width: 100%;
-        height: 100%;
-        }
-
-        .button-86:active::after {
-        transition: 0s;
-        transform: translate(0, 5%);
-        }
-        
-        .sidenav {
-        width: 25%;
-        max-width: 480;
-        position: fixed;
-        z-index: 1;
-        top: 70px;
-        bottom: 0px;
-        left: 0;
-        background-color: #39AEA9;
-        overflow-x: hidden;
-        padding-top: 20px;
-        border-style: solid;
-        
-        border-width: 2px;
-        }
-
-        .sidenav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        }
-
-        .sidenav a:hover {
-        color: #f1f1f1;
-        }
-
-        .sidenav .search-container {
-        
-        text-align: center;
-        }
-
-        .sidenav input[type=text] {
-        padding: 6px;
-        margin-top: 8px;
-        font-size: 17px;
-        border: none;
-        }
-
-        .sidenav .search-container button {
-        text-align: center;
-        padding: 6px 10px;
-        margin-top: 8px;
-        margin-right: 16px;
-        background: #ddd;
-        font-size: 17px;
-        border: none;
-        cursor: pointer;
-        }
-
-        .sidenav .search-container button:hover {
-        background: #ccc;
-        }
-
-        .sidenav a, .dropdown-btn {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #818181;
-        display: block;
-        border: none;
-        background-color: darkred;
-        width:100%;
-        text-align: left;
-        cursor: pointer;
-        outline: none;
-        }
-
-        /* On mouse-over */
-        .sidenav a:hover, .dropdown-btn:hover {
-        color: #f1f1f1;
-        }
-
-        .active {
-            background-color: green;
-            color: white;
-        }
-
-            /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-        .dropdown-container {
-            display: none;
-            background-color: #262626;
-            padding-left: 8px;
-        }
-
-            /* Optional: Style the caret down icon */
-        .fa-caret-down {
-            float: right;
-            padding-right: 8px;
-        }
-    </style>
 </head>
 <body style="margin: 0; background-color: white;">
     <div class="container">
         <div class="main-header">
             <div class="main-headertext" style="display:inline-flex"><strong>Zeggs</strong></div>
-            <button class="button-86" style="float:right">Add A Listing +</button>
+            <button class="button-86" style="float:right" onclick="location.href='addlisting.html'">Add A Listing +</button>
             <button class="button-28" style="float:right">Sign-Up</button>
             <button class="button-28" style="float:right">Login</button>
         </div>
@@ -301,27 +31,84 @@
             <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
-        <button class="dropdown-btn">Dropdown
+        <h1 class="side-text">Filters</h1>
+        <button class="dropdown-btn">Price
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <input type="checkbox" id="price1" name="price1" value="LT20">
+            <label for="price1" style="font-size:larger;color:white;">&LT; 20</label><br>
+            <input type="checkbox" id="price2" name="price2" value="20-50">
+            <label for="price2" style="font-size: larger;color:white;">20 - 50</label><br>
+            <input type="checkbox" id="price3" name="price3" value="50-150">
+            <label for="price3" style="font-size: larger;color:white;">50 - 150</label><br>
+            <input type="checkbox" id="price4" name="price4" value="GT150">
+            <label for="price4" style="font-size: larger;color:white;">&GT; 150</label><br>
           </div>
-        <button class="dropdown-btn">Dropdown
+        <button class="dropdown-btn">Condition
             <i class="fa fa-caret-down"></i>
         </button>
           <div class="dropdown-container">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <input type="checkbox" id="condition1" name="condition1" value="new">
+            <label for="condition1" style="font-size: larger;color:white;">New</label><br>
+            <input type="checkbox" id="condition" name="condition2" value="good">
+            <label for="condition2" style="font-size: larger;color:white;">Good</label><br>
+            <input type="checkbox" id="condition3" name="condition3" value="acceptable">
+            <label for="condition3" style="font-size: larger;color:white;">Acceptable</label><br>
           </div>
+          <button class="dropdown-btn">Posting Date
+            <i class="fa fa-caret-down"></i>
+        </button>
+          <div class="dropdown-container">
+            <input type="checkbox" id="date1" name="date1" value="date1">
+            <label for="date1" style="font-size: larger;color:white;">Past Month</label><br>
+            <input type="checkbox" id="date2" name="date2" value="date2">
+            <label for="date2" style="font-size: larger;color:white;">Past Year</label><br>
+            <input type="checkbox" id="date3" name="date3" value="date3">
+            <label for="date3" style="font-size: larger;color:white;">All Time</label><br>
+          </div>
+          <button class="dropdown-btn">Categories
+            <i class="fa fa-caret-down"></i>
+        </button>
+          <div class="dropdown-container">
+            <input type="checkbox" id="category1" name="category1" value="c&a">
+            <label for="category1" style="font-size: larger;color:white;">Clothing/Accessories</label><br>
+            <input type="checkbox" id="category2" name="category2" value="electronics">
+            <label for="category2" style="font-size: larger;color:white;">Electronics</label><br>
+            <input type="checkbox" id="category3" name="category3" value="shoes">
+            <label for="category3" style="font-size: larger;color:white;">Shoes</label><br>
+            <input type="checkbox" id="category4" name="category4" value="athletics">
+            <label for="category4" style="font-size: larger;color:white;">Athletics</label><br>
+            <input type="checkbox" id="category5" name="category5" value="jewelry">
+            <label for="category5" style="font-size: larger;color:white;">Jewelry</label><br>
+          </div>
+          <button class="button-48" role="button"><span class="text">Filter</span></button>
     </div>
-    <div class="container2"></div>
+    <div class="box">
+      <div style="text-align: center;">Hello World</div>
+      <p>Text</p>
+    </div>
     <!-- Load scripts at the end of your HTML to make pages load faster! -->
-    <script src="index.js"></script>
+    <script>
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+    </script>
+            
+    <script src="../index.js"></script>
     <script src="addlisting.js"></script>
-    <script src="testauth.js"></script>
+        
 </body>
 </html>
