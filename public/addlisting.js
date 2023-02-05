@@ -58,7 +58,7 @@ btn.addEventListener('click', function(e) {
 
     if (!anyValsMissing(requiredVals)) {
         sendFormData();
-        window.location.href = "index.html";
+        // window.location.href = "localhost:3000/public/index.html";
     }
 
 });
@@ -96,4 +96,6 @@ async function sendFormData(url='', data={})
     })
     .then(data => console.log(data))
     .catch(error => console.log('Form POST error.'))
+
+
 }
