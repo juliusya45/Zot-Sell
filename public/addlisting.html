@@ -17,48 +17,57 @@
     <div class = "box">
         <div>
             <form id="listingform" method="post">
-                <label for="exampleFormControlInput1" class="form-label">Item Title</label><br>
+                <div class="input-container">
+                    <input id="item-title" required>
+                    <label>Item Title</label>		
+                </div>
+
+                <label for="description" class="text">Item Description</label><br>
                 
-                <input id="item-title" placeholder="Petr Bucket Hat"  required><br><br>
+                <textarea rows="5" cols="50" id="description" name="description" placeholder="A lovely top for any UCI-spirited outfit!" required></textarea><br><br>
 
-                <label for="description" class="form-label">Item Description</label><br>
-                
-                <textarea rows="10" cols="50" id="description" name="description" placeholder="A lovely top for any UCI-spirited outfit!" required></textarea><br><br>
+                <div class="input-container">
+                    <input type="number" step="0.01" id="price" name="price" required/>
+                    <label>Price ($)</label>		
+                </div>
 
-                <label for="price">Price ($)</label><br>
+                <label id = "Date">Date Posted</label>
+                <div class="input-container">
+                    <input type="date" name="date-posted" id="date-posted" required/>
+                    	
+                </div>
 
-                <input type="number" step="0.01" id="price" name="price" required/><br><br>
+                <div class="input-container">
+                    <input id="quantity" required>
+                    <label>Quantity Available</label>		
+                </div>
 
-                <label for="date-posted" class="form-label">Date Posted</label><br>
+                <div class="input-container">
+                    <input id="phone-num" required>
+                    <label>Phone Number</label>		
+                </div>
 
-                <input type="date" name="date-posted" id="date-posted" required/><br><br>
+                <div class="input-container">
+                    <input id="meeting-spot" required>
+                    <label>Preferred Meeting Spot (Optional)</label>		
+                </div>
 
-                <label for="quantity" class="form-label">Quantity Available</label><br>
+                <label id = "image_label">Select image:</label>
+                <div class="input-container">
+                    <input type="file" id="img" name="img" accept="image/*" required>
+                </div>
 
-                <input id="quantity" name="quantity" type="number" min="1" required/><br><br>
-
-                <label for="exampleFormControlInput5" class="form-label">Phone #</label><br>
-
-                <input type="tel" id="phone-num" placeholder="(xxx) xxx-xxxx" required/><br><br>
-
-                <label for="meeting-spot" class="form-label">Preferred Meeting Spot (Optional)</label><br>
-
-                <input id ="meeting-spot" name="meeting-spot"/><br><br>
-
-                <label for="img">Select image:</label><br>
-                
-                <input type="file" id="img" name="img" accept="image/*" required><br><br>
-
-                <label for="condition">Condition</label><br>
+                <div class = "text">
+                    <label for="condition">Condition</label><br>
                     <input type="radio" id="new" name="cond" value="new">
                     <label for="new"> New</label><br>
                     <input type="radio" id="good" name="cond" value="good">
                     <label for="good"> Good</label><br>
                     <input type="radio" id="acceptable" name="cond" value="acceptable">
                     <label for="acceptable"> Acceptable</label><br><br>
-
-                <label for="tags">Tag(s)</label><br>
-
+                </div>
+                <div class = "text">
+                    <label for="tags">Tag(s)</label><br>
                     <input type="checkbox" id="clothing" name="clothing" value="clothing/accessories">
                     <label for="clothing"> Clothing/Accessories</label><br>
                     <input type="checkbox" id="electronics" name="electronics" value="electronics">
@@ -69,13 +78,10 @@
                     <label for="athletics"> Athletics</label><br>
                     <input type="checkbox" id="jewelry" name="jewelry" value="jewelry">
                     <label for="jewelry"> Jewelry</label><br><br>
-        
-                    <input type="submit" id="submitListingBtn"></button>
-                </form>
-            </div>
-            
+                </div>
+                <input type="submit" id="submitListingBtn"></button>
+            </form>
         </div>
-        <br/>
     </div>
     <!-- Load scripts at the end of your HTML to make pages load faster! -->
     <script src="addlisting.js"></script>
