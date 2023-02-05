@@ -107,7 +107,7 @@ async function sendFormData(url='', data={})
         },
         body: JSON.stringify(listing)
     }).then(res => {
-        console.log('AOTAJIOJAFOIDOF')
+        console.log('res received')
     })
     .then(data => console.log(data))
     .catch(error => console.log('Form POST error.'))
