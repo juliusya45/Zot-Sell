@@ -1,11 +1,55 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 .box {
-    width: 75%;
-    max-width: 1440;
-    position: fixed;
-    background-color: #d3e7ee;
-    overflow-x: hidden;
-    padding-top: 20px;
     margin: auto;
+    width: 100%;
+    max-width: 1440;
+    background-color: #d3e7ee;
+    padding-top: 20px;
+}
+.nametext{
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 32px;
+    color: #c6a477;
+    transform: translateY(-70%);
+}
+.product-imgbox{
+    position: absolute;
+    left: 20%;
+    padding-top: 10px;
+    width:40%;
+    height:55%;
+    background-color: blueviolet;
+}
+.product-details{
+    position: absolute;
+    right: 20%;
+    padding-top: 10px;
+    width: 18%;
+    height: 55%;
+    background-color: cornflowerblue;
+}
+
+.product-description{
+    position:absolute;
+    left:20%;
+    bottom: 2%;
+    width:60%;
+    height:25%;
+    background-color: firebrick;
+}
+.sponsor-banner{
+    position: absolute;
+    height: 100%;
+    width: 17%;
+    background-color: limegreen;
+}
+
+#right-sponsor{
+    background-image: url(hack.jpg);
+}
+
+#left-sponsor{
+    background-image: url(google_cloud.jpg);
 }
