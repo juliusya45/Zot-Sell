@@ -26,10 +26,15 @@ const db = getFirestore(app);
 //this function has access to all fields
 function showListing(d) {
   let type = 'ul'
-  itemTitle = d.data().itemTitle
-  description = d.data().description
+  let itemTitle = d.data().itemTitle
+  let description = d.data().description
+  let price = d.data().price
+  let phoneNum = d.data().phoneNum
 
-
+  let textline = `${itemTitle}: ${description} | Price: ${price} | Contact: #${phoneNum}`
+  type = document.createElement(type)
+  type.appendChild(document.createTextNode(textline))
+  document.getElementById('all-listings').appendChild(type)
   // TITLE: DESCRIPTION, Price: PRICE, Contact: PHONE NUMBER, Tag(s): TAGS, Condition: CONDITION, 
 
 }
@@ -37,11 +42,12 @@ function showListing(d) {
 //gets data from listing
 async function main()
 {
-    const querySnapshot = await getDocs(collection(db, "listings"));
-    querySnapshot.forEach((doc) => {
-  showListing(doc);
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data().itemTitle);
-});
+
+  const querySnapshot = await getDocs(collection(db, "listings"));
+  querySnapshot.forEach((doc) => {
+    // showListing(doc);
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data().itemTitle);
+  });
 }
 main();
