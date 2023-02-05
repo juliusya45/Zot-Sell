@@ -38,10 +38,12 @@ btn.addEventListener('click', function(e) {
     price = document.getElementById('price').value
     datePosted = document.getElementById('date-posted').value
     quantity = document.getElementById('quantity').value
-    
     img = document.getElementById('img').value
 
     // Bools
+    isNew = document.getElementById('new').checked
+    isGood = document.getElementById('good').checked
+    isAcceptable = document.getElementById('acceptable').checked
     isClothing = document.getElementById('clothing').checked
     isElectronics = document.getElementById('electronics').checked
     isShoes = document.getElementById('shoes').checked
@@ -51,7 +53,7 @@ btn.addEventListener('click', function(e) {
     console.log('yo yo!')
 
     console.log([itemTitle, description, price, datePosted, quantity, 
-    phoneNum, meetingSpot, img, isClothing, isElectronics, isShoes, isAthletics, isJewelry])
+    phoneNum, meetingSpot, img, isNew, isGood, isAcceptable, isClothing, isElectronics, isShoes, isAthletics, isJewelry])
 
     requiredVals = [itemTitle, description, price, datePosted, quantity, 
         phoneNum, img]
@@ -78,7 +80,10 @@ async function sendFormData(url='', data={})
         isElectronics: isElectronics,
         isShoes: isShoes,
         isAthletics: isAthletics,
-        isJewelry: isJewelry
+        isJewelry: isJewelry,
+        isNew: isNew,
+        isGood: isGood,
+        isAcceptable: isAcceptable
     };
 
     fetch('/addlisting', {
