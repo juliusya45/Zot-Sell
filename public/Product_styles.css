@@ -3,9 +3,9 @@
 .box {
     margin: auto;
     width: 100%;
+    padding-top: 10px;
     max-width: 1440;
     background-color: #d3e7ee;
-    padding-top: 20px;
 }
 .nametext{
     text-align: center;
@@ -17,17 +17,18 @@
 .product-imgbox{
     position: absolute;
     left: 20%;
-    padding-top: 10px;
     width:40%;
     height:55%;
+    background-position: center;
     background-color: blueviolet;
 }
 .product-details{
     position: absolute;
     right: 20%;
-    padding-top: 10px;
-    width: 18%;
+    width: 19%;
     height: 55%;
+    background-position: center;
+    background-size: cover;
     background-color: cornflowerblue;
 }
 
@@ -37,19 +38,25 @@
     bottom: 2%;
     width:60%;
     height:25%;
+    background-position: center;
+    background-size: cover;
     background-color: firebrick;
 }
 .sponsor-banner{
     position: absolute;
-    height: 100%;
-    width: 17%;
-    background-color: limegreen;
+    height: 80%;
+    width: 19%;
+	background-color: #f6e2bc;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:80vh;
 }
 
 #right-sponsor{
-    background-image: url(hack.jpg);
+    background-image: url(hack-banner.jpg);
 }
 
 #left-sponsor{
-    background-image: url(google_cloud.jpg);
+    background-image: url(google-cloud-banner.png);
 }
