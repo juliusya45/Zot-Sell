@@ -3,53 +3,87 @@
 .box {
     margin: auto;
     width: 100%;
+    padding-top: 10px;
     max-width: 1440;
-    background-color: #d3e7ee;
-    padding-top: 20px;
+    background-color: #3b7097;
 }
 .nametext{
     text-align: center;
     font-family: "Roboto";
     font-size: 32px;
-    color: #c6a477;
+    color: #fff;
     transform: translateY(-70%);
 }
 .product-imgbox{
+    background-image: url("https://image.artistshot.com/pd.147519743.55.1584309.s3.1-front-white-ffffff-none-x51.5y0-95-200x200.jpg");
+    background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     left: 20%;
-    padding-top: 10px;
     width:40%;
     height:55%;
+    background-position: center;
     background-color: blueviolet;
 }
 .product-details{
+    font-size: large;
     position: absolute;
     right: 20%;
+    width: 19%;
+    height: 50%;
+    background-position: center;
+    background-size: cover;
+    font-family:"Roboto";
+    background-color: #aac9ce;
     padding-top: 10px;
-    width: 18%;
-    height: 55%;
-    background-color: cornflowerblue;
+    padding-left: 10px;
+}
+
+.main-headertext{
+    color: white;
+    font-family:'Courier New';
+    display: inline-flex;
+    font-size: 40px;
+    transform: translateY(20%);
+    z-index: 1;
+    margin-left: 25px;
+    text-shadow:
+    1px 1px 0 #000;
 }
 
 .product-description{
+    font-size: large;
     position:absolute;
     left:20%;
     bottom: 2%;
     width:60%;
     height:25%;
-    background-color: firebrick;
+    background-position: center;
+    background-size: cover;
+    font-family:"Roboto";
+    background-color: #aac9ce;
+    padding-top: 10px;
+    padding-left: 10px;
+
+
 }
 .sponsor-banner{
     position: absolute;
-    height: 100%;
-    width: 17%;
-    background-color: limegreen;
+    height: 80%;
+    width: 19%;
+	background-color: #aac9ce;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:80vh;
 }
 
 #right-sponsor{
-    background-image: url(hack.jpg);
+    background-image: url(hack-banner.jpg);
 }
 
 #left-sponsor{
-    background-image: url(google_cloud.jpg);
+    background-image: url(google-cloud-banner.png);
 }

@@ -42,7 +42,7 @@
             color: #efeadd;
             cursor: pointer;
             display: inline-flex;
-            font-family: CircularStd,sans-serif;
+            font-family: "Roboto";
             font-size: 1rem;
             justify-content: center;
             line-height: 1.5;
@@ -68,10 +68,10 @@
             border: 2px solid #1A1A1A;
             border-radius: 15px;
             box-sizing: border-box;
-            color: #3B3B3B;
+            color: #ffffff;
             cursor: pointer;
             display: inline-block;
-            font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-family: "Roboto";
             font-size: 16px;
             font-weight: 600;
             line-height: normal;
@@ -109,6 +109,7 @@
 /* CSS */
         .button-86 {
             all: unset;
+            font-family: "Roboto";
             width: 100px;
             height: 30px;
             font-size: 16px;
@@ -178,7 +179,6 @@
         transform: translate(0, 5%);
         }
 
-/* CSS */
 .button-48 {
   appearance: none;
   background-color: #FFFFFF;
@@ -187,7 +187,7 @@
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-family: Clarkson,Helvetica,sans-serif;
+  font-family: "Roboto";
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0;
@@ -305,6 +305,7 @@
         outline: none;
         margin-top: 7px;
         margin-bottom: 7px;
+        font-family: "Roboto";
         }
 
         /* On mouse-over */
@@ -317,14 +318,14 @@
             color: black;
         }
 
-            /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+/* Dropdown container (hidden by default).*/
         .dropdown-container {
             display: none;
             background-color: #3b7097;
             padding-left: 8px;
+            font-family: "Roboto";
         }
 
-            /* Optional: Style the caret down icon */
         .fa-caret-down {
             float: right;
             padding-right: 8px;
@@ -348,5 +349,62 @@
     left: 25%;
     background-color: #d3e7ee;
     overflow-x: hidden;
-    padding-top: 20px;
+}
+.listing-header{
+    font-family: "Roboto";
+    font-size: 28px;
+    color: #c6a477;
+    text-shadow:
+    1px 1px 0 #000;  
+}
+.grid-container {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 380px 380px 380px; /*Make the grid smaller than the container*/
+    gap: 10px;
+    background-color: #dcede6;
+    padding: 10px;
+  }
+  .grid-container > div {
+    background-color: #f6f1f1;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    height:260px;
+    width: 380px;
+  }
+  .small-text{
+    font-family: "Roboto";
+    font-size:smaller;
+    margin-top: 0%;
+    margin-bottom: 5px;
+  }
+.button-81 {
+    margin-top: 0%;
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 0;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  height: 30px;
+}
+
+.button-81:hover {
+  background-color: #1e293b;
+  color: #fff;
 }

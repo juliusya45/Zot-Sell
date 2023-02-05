@@ -17,6 +17,11 @@ appE.post('/addlisting', (req, res) => {
   //addListing(req.body);
   addImg(req.body);
 })
+appE.get('http://localhost:3000/showlistings', (req, res) => {
+  console.log(req.body)
+  console.log(res)
+})
+
 
 appE.use('/public', express.static('public'))
 
@@ -93,3 +98,4 @@ async function addListing(info)
     const docRef = await addDoc(collection(db, "listings"), info);
    console.log("Document written with ID: ", docRef.id);
 }
+

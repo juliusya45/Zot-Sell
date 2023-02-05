@@ -7,6 +7,13 @@ import { collection } from "firebase/firestore";
 import { config } from 'dotenv';
 config();
 
+import express from 'express';
+const appE = express();
+
+appE.use(express.json())
+
+appE.use('public', express.static('public'))
+
 //firebase configs
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
@@ -24,29 +31,21 @@ const db = getFirestore(app);
 
 //each doc is passed into this fucntion
 //this function has access to all fields
-function showListing(d) {
-  let type = 'ul'
-  let itemTitle = d.data().itemTitle
-  let description = d.data().description
-  let price = d.data().price
-  let phoneNum = d.data().phoneNum
 
-  let textline = `${itemTitle}: ${description} | Price: ${price} | Contact: #${phoneNum}`
-  type = document.createElement(type)
-  type.appendChild(document.createTextNode(textline))
-  document.getElementById('all-listings').appendChild(type)
-  // TITLE: DESCRIPTION, Price: PRICE, Contact: PHONE NUMBER, Tag(s): TAGS, Condition: CONDITION, 
-
-}
 
 //gets data from listing
 async function main()
 {
     const querySnapshot = await getDocs(collection(db, "listings"));
     querySnapshot.forEach((doc) => {
-  showListing(doc);
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-});
+
+      appE.get('/showlistings', (req, res) => {
+        console.log(req.body)
+        res.send(doc)
+      })
+      
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });
 }
 main();

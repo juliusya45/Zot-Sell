@@ -21,10 +21,10 @@
 
     <div class="container">
         <div class="main-header">
-            <div class="main-headertext" style="display:inline-flex"><strong>ZotSell</strong></div>
+            <div class="main-headertext" style="display:inline-flex" onclick="location.href='index.html'"><strong>ZotSell</strong></div>
             <button class="button-86" style="float:right" onclick="location.href='addlisting.html'">Add A Listing +</button>
-            <button class="button-28" style="float:right">Sign-Up</button>
-            <button class="button-28" style="float:right">Login</button>
+            <button class="button-28" style="float:right" onclick="location.href='Signup.html'">Sign-Up</button>
+            <button class="button-28" style="float:right" onclick="location.href='Login.html'">Login</button>
         </div>
     </div>
     
@@ -89,25 +89,49 @@
           <button class="button-48" role="button"><span class="text">Filter</span></button>
     </div>
     <div class="box">
-      <div style="text-align: center;">Hello World</div>
-      <ul id="all-listings">
-
-        <ul id="listing1">
-            <li>Text</li>
-            <li>Text</li>
-            <li>Text</li>
-        </ul>
-        <br>
-        <ul id="listing2">
-            <li>Info</li>
-            <li>Info</li>
-            <li>Info</li>
-        </ul>
-
-      </ul>
+      <p class="listing-header" style="text-align: center;">Listings</p>
+      <div class="grid-container">
+        <div>
+          <h2 class="small-text">UCI Bucket Hat</h2>
+          <img src="https://image.artistshot.com/pd.147519743.55.1584309.s3.1-front-white-ffffff-none-x51.5y0-95-200x200.jpg"
+            style="width: 250px;height: 200px;">
+            <br>
+            <button class="button-81" role="button" onclick="location.href='Product.html'">More Info</button>
+        </div>
+        <div><h2 class="small-text">Used iPad Air</h2>
+          <img src="https://u-mercari-images.mercdn.net/photos/m25464694677_1.jpg"
+            style="width: 250px;height: 200px;">
+            <br>
+            <button class="button-81" role="button">More Info</button>
+            </div>
+        <div><h2 class="small-text">Nike Air Force 1s</h2>
+          <img src="https://i.ebayimg.com/images/g/yxwAAOSwfABjh7dg/s-l500.jpg"
+            style="width: 250px;height: 200px;">
+            <br>
+            <button class="button-81" role="button">More Info</button>
+            </div>  
+        <div><h2 class="small-text">Wilson Basketball</h2>
+          <img src="https://edge.images.sidelineswap.com/production/007/957/298/20625eb4ee8abbae_original.jpeg"
+            style="width: 250px;height: 200px;">
+            <br>
+            <button class="button-81" role="button">More Info</button>
+            </div>
+        <div><h2 class="small-text">Silver Bracelet</h2>
+          <img src="https://cdn.shopify.com/s/files/1/0208/1620/products/enchain-bracelet-chain-in-silver-by-wild_and_arrow-jewelry-stockholm-smycken-i-butik-och-online_8d577d70-3df6-49b0-b233-050d70c3c6cd.png"
+            style="width: 250px;height: 200px;">
+            <br>
+            <button class="button-81" role="button">More Info</button>
+            </div>
+        <div><h2 class="small-text">Women’s Athletic Leggings</h2>
+          <img src="https://www.sportsdirect.com/images/products/34601303_3pl.jpg"
+            style="width: 250px;height: 200px;">
+            <br>
+            <button class="button-81" role="button">More Info</button>  
+      </div>
       
     </div>
     <!-- Load scripts at the end of your HTML to make pages load faster! -->
+<<<<<<< HEAD
     <script>
         /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
         var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -131,6 +155,9 @@
     <script src="addlisting.js"></script>
 
 
+=======
+    <script src="displayhome.js"></script>
+>>>>>>> 73227fbbc9bb1b6b9cd36774059748b7d3d44276
     
         
 </body>
