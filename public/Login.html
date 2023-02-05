@@ -18,17 +18,17 @@
         <form>
             <span class="text-center">login</span>
         <div class="input-container">
-            <input type="text" required=""/>
+            <input type="text" id="username" required=""/>
             <label>Username</label>		
         </div>
         <div class="input-container">		
-            <input type="mail" required=""/>
+            <input type="mail" id="password" required=""/>
             <label>Password</label>
         </div>
-            <button type="button" class="btn">Login</button>
+            <button type="button" class="btn" onclick="userData()">Login</button>
     </form>	
     </div>
     <!-- Load scripts at the end of your HTML to make pages load faster! -->
-    <script src="../addlogin.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
