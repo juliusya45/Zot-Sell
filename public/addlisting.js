@@ -91,13 +91,8 @@ btn.addEventListener('click', function(e) {
         phoneNum, img]
     
     if (!anyValsMissing(requiredVals)) {
-<<<<<<< HEAD
-        
-        // window.location.href = "index.html";
-=======
         sendFormData();
         window.location.href = "index.html";
->>>>>>> 73227fbbc9bb1b6b9cd36774059748b7d3d44276
     }
     sendFormData();
 
