@@ -19,13 +19,16 @@
     left: 20%;
     width:40%;
     height:55%;
+    background-position: center;
     background-color: blueviolet;
 }
 .product-details{
     position: absolute;
     right: 20%;
-    width: 18%;
+    width: 19%;
     height: 55%;
+    background-position: center;
+    background-size: cover;
     background-color: cornflowerblue;
 }
 
@@ -35,19 +38,25 @@
     bottom: 2%;
     width:60%;
     height:25%;
+    background-position: center;
+    background-size: cover;
     background-color: firebrick;
 }
 .sponsor-banner{
     position: absolute;
-    height: 680px;
-    width: 15%;
-    background-color: limegreen;
+    height: 80%;
+    width: 19%;
+	background-color: #f6e2bc;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:80vh;
 }
 
 #right-sponsor{
-    background-image: url(hackupdated.png);
+    background-image: url(hack-banner.jpg);
 }
 
 #left-sponsor{
-    background-image: url(cloudupdated.png);
+    background-image: url(google-cloud-banner.png);
 }
