@@ -58,10 +58,25 @@ btn.addEventListener('click', function(e) {
 
     if (!anyValsMissing(requiredVals)) {
         sendFormData();
-        // window.location.href = "localhost:3000/public/index.html";
+        // window.location.href = "index.html";
     }
 
 });
+
+function showListing(d) {
+    let type = 'ul'
+    let itemTitle = d.data().itemTitle
+    let description = d.data().description
+    let price = d.data().price
+    let phoneNum = d.data().phoneNum
+
+    let textline = `${itemTitle}: ${description} | Price: ${price} | Contact: #${phoneNum}`
+    type = document.createElement(type)
+    type.appendChild(document.createTextNode(textline))
+    document.getElementById('all-listings').appendChild(type)
+    // TITLE: DESCRIPTION, Price: PRICE, Contact: PHONE NUMBER, Tag(s): TAGS, Condition: CONDITION, 
+
+}
 
 async function sendFormData(url='', data={})
 {

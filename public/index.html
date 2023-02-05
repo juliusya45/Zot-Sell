@@ -86,9 +86,22 @@
     </div>
     <div class="box">
       <div style="text-align: center;">Hello World</div>
-      <ul>Text</ul>
-      <ul>Text</ul>
-      <ul>Text</ul>
+      <ul id="all-listings">
+
+        <ul id="listing1">
+            <li>Text</li>
+            <li>Text</li>
+            <li>Text</li>
+        </ul>
+        <br>
+        <ul id="listing2">
+            <li>Info</li>
+            <li>Info</li>
+            <li>Info</li>
+        </ul>
+
+      </ul>
+      
     </div>
     <!-- Load scripts at the end of your HTML to make pages load faster! -->
     <script>
@@ -107,10 +120,12 @@
             }
           });
         }
+
     </script>
-            
+    <script src="showlisting.js"></script>        
     <script src="index.js"></script>
     <script src="addlisting.js"></script>
+    
         
 </body>
 </html>
