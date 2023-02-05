@@ -58,7 +58,7 @@ btn.addEventListener('click', function(e) {
 
     if (!anyValsMissing(requiredVals)) {
         sendFormData();
-        // window.location.href = "index.html";
+        window.location.href = "index.html";
     }
 
 });
