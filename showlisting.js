@@ -26,7 +26,12 @@ const db = getFirestore(app);
 //this function has access to all fields
 function showListing(d) {
   let type = 'ul'
-  //d.data().itemTitle = 
+  itemTitle = d.data().itemTitle
+  description = d.data().description
+
+
+  // TITLE: DESCRIPTION, Price: PRICE, Contact: PHONE NUMBER, Tag(s): TAGS, Condition: CONDITION, 
+
 }
 
 //gets data from listing
