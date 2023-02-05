@@ -36,7 +36,7 @@ async function main()
     querySnapshot.forEach((doc) => {
   showListing(doc);
   // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data().itemTitle);
+  console.log(doc.id, " => ", doc.data());
 });
 }
 main();
