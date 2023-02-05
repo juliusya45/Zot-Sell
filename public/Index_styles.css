@@ -338,3 +338,15 @@
     text-shadow:
     1px 1px 0 #000;  
 }
+.box {
+    width: 75%;
+    max-width: 1440;
+    position: fixed;
+    z-index: 1;
+    top: 70px;
+    bottom: 0px;
+    left: 25%;
+    background-color: #d3e7ee;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
