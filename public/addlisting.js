@@ -11,7 +11,7 @@ let isElectronics;
 let isShoes;
 let isAthletics;
 let isJewelry;
-let bimg;
+const bimg = { encodedStr: ''};
 
 function anyValsMissing(li) {
     for (let i = 0; i < li.length; i++) {
@@ -22,17 +22,36 @@ function anyValsMissing(li) {
     return false
 }
 
-const btn = document.querySelector("#submitListingBtn");
-btn.addEventListener('click', function(e) {
-    
-    e.preventDefault();
+function onButtonClick(e) {
+    if (e) {
+        e.preventDefault();
+    }
+
+    async function readFile(event) {
+        //converts img to blob file
+        console.log('Imma start with ' + bimg.encodedStr)
+        bimg.encodedStr = event.target.result;
+        console.log(bimg);
+        // console.log(bimg instanceof ArrayBuffer);
+        // var buffer = Buffer.from(await bimg.arrayBuffer());
+        // const b64 = buffer.toString('base64');
+        // console.log(b64);
+        var binaryString = await String.fromCharCode.apply(null, new Uint8Array(bimg.encodedStr));
+        bimg.encodedStr = binaryString;
+        // //bimg = String.fromCharCode.apply(null, new Uint8Array(bimg))
+        // bimg = bimg.toString();
+        bimg.encodedStr = btoa(bimg.encodedStr);
+        console.log(bimg.encodedStr);
+        //bimg = u_btoa(bimg);
+    };
     
     var input = document.querySelector('input[type=file]');;
-    function changeFile() {
+    async function changeFile() {
         var file = input.files[0];
         var reader = new FileReader();
-        reader.addEventListener('load', readFile);
+        reader.addEventListener('load', readFile)
         reader.readAsArrayBuffer(file);
+        console.log("is:" + bimg);
         console.log("read");
     }
 
@@ -60,45 +79,27 @@ btn.addEventListener('click', function(e) {
     changeFile();
     console.log('yo yo!');
 
-    function readFile(event) {
-        //converts img to blob file
-        bimg = event.target.result;
-        console.log(bimg instanceof ArrayBuffer);
-        // var binaryString = String.fromCharCode.apply(null, new Uint8Array(buffer));
-        // bimg = btoa(binaryString);
-        // //bimg = String.fromCharCode.apply(null, new Uint8Array(bimg))
-        // bimg = bimg.toString();
-        // console.log(bimg);
-        //bimg = u_btoa(bimg);
-};
 
-// function u_btoa(buffer) {
-//     var binary = [];
-//     var bytes = new Uint8Array(buffer);
-//     for (var i = 0, il = bytes.byteLength; i < il; i++) {
-//         binary.push(String.fromCharCode(bytes[i]));
-//     }
-//     return btoa(binary.join(''));
-// }
-  
-
-  //input.addEventListener('change', changeFile);
-  console.log([itemTitle, description, price, datePosted, quantity, 
-    phoneNum, meetingSpot, img, isNew, isGood, isAcceptable, isClothing, isElectronics, isShoes, isAthletics, isJewelry, bimg])
-    //console.log({"img": bimg})
+    input.addEventListener('change', changeFile);
+    console.log([itemTitle, description, price, datePosted, quantity, 
+    phoneNum, meetingSpot, img, isNew, isGood, isAcceptable, isClothing, isElectronics, isShoes, isAthletics, isJewelry, bimg.encodedStr])
+    console.log({"img": bimg.encodedStr})
     
     requiredVals = [itemTitle, description, price, datePosted, quantity, 
         phoneNum, img]
     
     if (!anyValsMissing(requiredVals)) {
         sendFormData();
-        window.location.href = "index.html";
-    }
-    sendFormData();
+        //window.location.href = "index.html";
+    } 
+}
 
-
-
+const btn = document.querySelector("#submitListingBtn");
+btn.addEventListener('click', function(e) {
+    onButtonClick(e)
 });
+
+onButtonClick(null);
 
 function showListing(d) {
     let type = 'ul'
@@ -115,7 +116,7 @@ function showListing(d) {
 
 }
 
-async function sendFormData(url='', data={})
+function sendFormData(url='', data={})
 {
     //creates database
     const listing = {
@@ -128,7 +129,7 @@ async function sendFormData(url='', data={})
         meetingSpot: meetingSpot,
         img: img,
         //sends blob image into JSON to be dealt with in inbimgdex
-        picture: bimg,
+        picture: bimg.encodedStr,
         isClothing: isClothing,
         isElectronics: isElectronics,
         isShoes: isShoes,
@@ -139,6 +140,7 @@ async function sendFormData(url='', data={})
         isAcceptable: isAcceptable
     };
 
+    console.log('imma send over ' + listing.picture)
     fetch('http://localhost:3000/addlisting', {
         method: 'POST',
         headers: {
