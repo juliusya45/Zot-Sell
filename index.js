@@ -1,27 +1,15 @@
 //Getting required Firebase Libs
 import { initializeApp } from "firebase/app";
 import { getFirestore, waitForPendingWrites } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore"; 
 import { collection, addDoc} from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { handleListings } from './listings.js';
 
 import express from 'express';
 const appE = express()
 const port = process.env.PORT || 3000;
 import cors from 'cors';
-
-appE.use(express.json())
-appE.post('/addlisting', (req, res) => {
-  console.log(req.body);
-  //addListing(req.body);
-  addImg(req.body);
-})
-appE.get('http://localhost:3000/showlistings', (req, res) => {
-  console.log(req.body)
-  console.log(res)
-})
-
 
 appE.use('/public', express.static('public'))
 
@@ -49,53 +37,60 @@ const db = getFirestore(app);
 
 async function main()
 {
-  // Add a new document in collection "cities"
-  await setDoc(doc(db, "cities", "LA"), {
-    name: "Los Angeles",
-    state: "CA",
-    country: "USA"
-  });
-
-    appE.use(cors())
-    appE.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+  appE.use(express.json())
+  appE.use(cors())
+  appE.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
   })
+
+  //This adds data from listing to db
+  appE.post('/addlisting', async (req, res) => {
+    console.log(req.body);
+    //addListing(req.body);
+    var sendInfo = await addListing(req.body)
+    res.send(sendInfo);
+  })
+
+  //handles get for listings
+  appE.get('/listings', handleListings(db));
 }
 main();
 
-async function addImg(info)
+//function converts and uploads the image
+async function addImg(img, picid)
 {
-  console.log(info);
-  //var bytearray = Uint8Array.from(atob(info["picture"]), c => c.charCodeAt(0));
-  var bytearray = Uint8Array.from(atob(info["picture"]), c => c.charCodeAt(0));
-  // Create a root reference
-  const storage = getStorage();
-  var imgName = new Date() + '-' + '.png';
-  // Create a reference to 'mountains.jpg'
-  const picRef = ref(storage, imgName);
+  var bytearray = Uint8Array.from(atob(img), c => c.charCodeAt(0));
 
-  // Create a reference to 'images/mountains.jpg'
+  const storage = getStorage();
+  //image name is created
+  var imgName = picid + '.png';
+
+  const picRef = ref(storage, imgName);
   const ImagesPicRef = ref(storage, 'images/'+imgName);
 
-// While the file names are the same, the references point to different files
-picRef.name === ImagesPicRef.name;           // true
-picRef.fullPath === ImagesPicRef.fullPath;   // false 
+  // While the file names are the same, the references point to different files
+  picRef.name === ImagesPicRef.name;           // true
+  picRef.fullPath === ImagesPicRef.fullPath;   // false 
 
   const storageRef = ref(storage, ImagesPicRef);
 
-    // 'file' comes from the Blob or File API
+    //storageRef is the img being uploaded
   await uploadBytes(storageRef, bytearray).then((snapshot) => {
     console.log('Uploaded a blob or file! with name: ' + imgName);
   });
-  info["picture"] = imgName;
-  await addListing(info);
+  return (imgName);
 }
 
+//This function actually adds the listing
 async function addListing(info)
 {
       // Add a new document with a generated id.
+    var img = info["picture"];
+    delete info["picture"];
     info["time"] = Timestamp.now();
     const docRef = await addDoc(collection(db, "listings"), info);
-   console.log("Document written with ID: ", docRef.id);
+    //var docInfo = "Document written with ID: " + docRef.id
+   console.log(docRef.id);
+   return await addImg(img, docRef.id);
 }
 
