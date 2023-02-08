@@ -32,7 +32,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-
+//main handles post and get requests
 async function main()
 {
   appE.use(express.json())
@@ -45,11 +45,12 @@ async function main()
   appE.post('/addlisting', async (req, res) => {
     console.log(req.body);
     //addListing(req.body);
+    //addListing in addlistingdb.js
     var sendInfo = await addListing(db, req.body)
     res.send(sendInfo);
   })
 
-  //handles get for listings
+  //handles get for listings; function in getlistings.js
   appE.get('/listings', handleListings(db));
 }
 main();
