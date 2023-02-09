@@ -28,7 +28,6 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
-fetch('http://localhost:3000/showlistings')
-.then(res => console.log('received res'))
-.then(data => console.log(data))
-.catch(error => console.log('Listing GET error.'))
+fetch('http://localhost:3000/listings')
+  .then((response) => response.json())
+  .then((data) => console.log(data));

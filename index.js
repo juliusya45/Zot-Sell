@@ -35,7 +35,8 @@ const db = getFirestore(app);
 //main handles post and get requests
 async function main()
 {
-  appE.use(express.json())
+  appE.use(express.json({limit: '50mb'}));
+  appE.use(express.urlencoded({limit: '50mb'}));
   appE.use(cors())
   appE.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

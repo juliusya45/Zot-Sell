@@ -31,18 +31,12 @@ function onButtonClick(e) {
         //converts img to blob file
         console.log('Imma start with ' + bimg.encodedStr)
         bimg.encodedStr = event.target.result;
-        console.log(bimg);
-        // console.log(bimg instanceof ArrayBuffer);
-        // var buffer = Buffer.from(await bimg.arrayBuffer());
-        // const b64 = buffer.toString('base64');
-        // console.log(b64);
-        var binaryString = await String.fromCharCode.apply(null, new Uint8Array(bimg.encodedStr));
-        bimg.encodedStr = binaryString;
-        // //bimg = String.fromCharCode.apply(null, new Uint8Array(bimg))
-        // bimg = bimg.toString();
-        bimg.encodedStr = btoa(bimg.encodedStr);
-        console.log(bimg.encodedStr);
-        //bimg = u_btoa(bimg);
+        bimg.encodedStr = _arrayBufferToBase64(bimg.encodedStr);
+        // console.log(bimg);
+        // var binaryString = await String.fromCharCode.apply(null, new Uint8Array(bimg.encodedStr));
+        // bimg.encodedStr = binaryString;
+        // bimg.encodedStr = btoa(bimg.encodedStr);
+        // console.log(bimg.encodedStr);
     };
     
     var input = document.querySelector('input[type=file]');;
@@ -154,5 +148,16 @@ function sendFormData(url='', data={})
     .catch(error => console.log('Form POST error.'))
 
 
+}
+
+//https://stackoverflow.com/questions/9267899/arraybuffer-to-base64-encoded-string
+function _arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
 }
 
