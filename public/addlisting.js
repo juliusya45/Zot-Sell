@@ -82,9 +82,9 @@ function onButtonClick(e) {
     requiredVals = [itemTitle, description, price, datePosted, quantity, 
         phoneNum, img]
     
-    if (!anyValsMissing(requiredVals)) {
+    if (anyValsMissing(requiredVals)) {
         sendFormData();
-        //window.location.href = "index.html";
+        window.location.href = "index.html";
     } 
 }
 

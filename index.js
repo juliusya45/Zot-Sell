@@ -4,6 +4,7 @@ import { getFirestore, waitForPendingWrites } from "firebase/firestore";
 import { handleListings } from './getlistings.js';
 import { addListing } from './addlistingdb.js'
 
+/* This is setting up the express server. */
 import express from 'express';
 const appE = express()
 const port = process.env.PORT || 3000;

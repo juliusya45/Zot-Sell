@@ -15,7 +15,12 @@ export async function addListing(db, info)
    return await addImg(img, docRef.id);
 }
 
-//function converts and uploads the image
+/**
+ * It takes a base64 string, converts it to a byte array, then uploads it to firebase storage.
+ * @param img - the image in base64 format
+ * @param picid - the id of the picture
+ * @returns The name of the image being uploaded.
+ */
 async function addImg(img, picid)
 {
   var bytearray = Uint8Array.from(atob(img), c => c.charCodeAt(0));
@@ -28,8 +33,8 @@ async function addImg(img, picid)
   const ImagesPicRef = ref(storage, 'images/'+imgName);
 
   // While the file names are the same, the references point to different files
-  picRef.name === ImagesPicRef.name;           // true
-  picRef.fullPath === ImagesPicRef.fullPath;   // false 
+  picRef.name === ImagesPicRef.name;
+  picRef.fullPath === ImagesPicRef.fullPath;
 
   const storageRef = ref(storage, ImagesPicRef);
 
