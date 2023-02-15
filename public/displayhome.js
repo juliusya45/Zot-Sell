@@ -1,17 +1,19 @@
-function showListing(d) {
-    let type = 'ul'
-    let itemTitle = d.data().itemTitle
-    let description = d.data().description
-    let price = d.data().price
-    let phoneNum = d.data().phoneNum
-  
-    let textline = `${itemTitle}: ${description} | Price: ${price} | Contact: #${phoneNum}`
-    type = document.createElement(type)
-    type.appendChild(document.createTextNode(textline))
-    document.getElementById('all-listings').appendChild(type)
-    // TITLE: DESCRIPTION, Price: PRICE, Contact: PHONE NUMBER, Tag(s): TAGS, Condition: CONDITION, 
-  
-  }
+function showListing(listingObj) {
+  let type = 'div'
+  let itemTitle = listingObj.itemTitle
+  let description = listingObj.description
+  let price = listingObj.price
+  let phoneNum = listingObj.phoneNum
+
+  let textline = `${itemTitle}: ${description} | Price: ${price} | Contact: #${phoneNum}`
+  type = document.createElement(type)
+  displayTitle = document.createElement('h2')
+  displayTitle.innerHTML = itemTitle
+  displayTitle.classList.add('small-text')
+  type.appendChild(displayTitle)
+  document.getElementById('grid-container').appendChild(type)
+}
+
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
@@ -34,6 +36,11 @@ fetch('http://localhost:3000/listings')
   .then((data) => {
     console.log(data)
     testData = data;
+
+    for (let id in data) {
+      showListing(data[id]);
+    }
+
   })
   //can use then() to call another function and pass in JSON stuff
   .then(() => {
