@@ -3,8 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, waitForPendingWrites } from "firebase/firestore";
 import { handleListings } from './getlistings.js';
 import { addListing } from './addlistingdb.js';
-import { getListingById } from './getListingById.js';
-import bodyParser from "body-parser";
 
 /* This is setting up the express server. */
 import express from 'express';
@@ -38,8 +36,8 @@ const db = getFirestore(app);
 //main handles post and get requests
 async function main()
 {
-  bodyParser.json({limit: '50mb'});
-  bodyParser.urlencoded({limit: '50mb'});
+  appE.use(express.json({limit: '50mb'}));
+  appE.use(express.urlencoded({limit: '50mb'}));
   appE.use(cors())
   appE.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
