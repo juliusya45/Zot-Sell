@@ -23,9 +23,10 @@ function showListing(data, listingId) {
 
   // Create image
   let img = new Image(250, 200)
-  img.src = imgUrl
   if (imgUrl === undefined) {
     img.src = 'placeholder.png'
+  } else {
+    img.src = imgUrl
   }
 
   // Create button which navigates to new product page
@@ -79,7 +80,8 @@ fetch('http://localhost:3000/listings')
 
       showListing(data, id)
       
-      
     }
 
   })
+
+  

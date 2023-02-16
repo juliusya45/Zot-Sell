@@ -125,7 +125,6 @@ function sendFormData(url='', data={})
     .then(data => console.log(data))
     .catch(error => console.log('Form POST error.'))
 
-
 }
 
 //https://stackoverflow.com/questions/9267899/arraybuffer-to-base64-encoded-string
