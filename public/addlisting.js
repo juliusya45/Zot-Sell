@@ -113,7 +113,7 @@ function sendFormData(url='', data={})
         isAcceptable: isAcceptable
     };
 
-    fetch('http://localhost:3000/addlisting', {
+    fetch('/addlisting', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
