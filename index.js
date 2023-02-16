@@ -4,7 +4,6 @@ import { getFirestore, waitForPendingWrites } from "firebase/firestore";
 import { handleListings } from './getlistings.js';
 import { addListing } from './addlistingdb.js';
 import { getListingById } from './getListingById.js';
-import bodyParserErrorHandler from "express-body-parser-error-handler";
 
 /* This is setting up the express server. */
 import express from 'express';
@@ -40,7 +39,6 @@ async function main()
 {
   appE.use(express.json({limit: '50mb'}));
   appE.use(express.urlencoded({limit: '50mb'}));
-  appE.use(bodyParserErrorHandler());
   appE.use(cors())
   appE.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
