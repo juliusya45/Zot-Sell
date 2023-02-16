@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/juliusya45/Zot-List#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "buffer": "^6.0.3",
     "cors": "^2.8.5",
     "d3": "^7.8.2",
