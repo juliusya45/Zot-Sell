@@ -29,7 +29,6 @@ function onButtonClick(e) {
 
     async function readFile(event) {
         //converts img to blob file
-        console.log('Imma start with ' + bimg.encodedStr)
         bimg.encodedStr = event.target.result;
         bimg.encodedStr = _arrayBufferToBase64(bimg.encodedStr);
         // console.log(bimg);
@@ -119,7 +118,6 @@ function sendFormData(url='', data={})
         isAcceptable: isAcceptable
     };
 
-    console.log('imma send over ' + listing.picture)
     fetch('http://localhost:3000/addlisting', {
         method: 'POST',
         headers: {
