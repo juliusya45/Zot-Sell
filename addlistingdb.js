@@ -3,9 +3,6 @@ import { Timestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
 
-// Set the "capital" field of the city 'DC'
-
-
 //This function actually adds the listing
 export async function addListing(db, info)
 {

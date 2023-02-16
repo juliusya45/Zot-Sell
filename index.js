@@ -2,7 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, waitForPendingWrites } from "firebase/firestore";
 import { handleListings } from './getlistings.js';
-import { addListing } from './addlistingdb.js'
+import { addListing } from './addlistingdb.js';
+import { getListingById } from './getListingById.js'
 
 /* This is setting up the express server. */
 import express from 'express';
@@ -52,5 +53,6 @@ async function main()
 
   //handles get for listings; function in getlistings.js
   appE.get('/listings', handleListings(db));
+  appE.get('/showItem', getListingById(db));
 }
 main();
