@@ -31,7 +31,7 @@ function showListing(data, listingId) {
   moreInfoBtn.innerHTML = 'More Info'
   moreInfoBtn.id = listingId
   moreInfoBtn.onclick = () => {
-    w = window.open(url=`Product.html/${listingId}`, 'target', 'popup')
+    w = window.open(url=`Product.html?id=${listingId}`, 'target', 'popup')
   }
     
 
