@@ -31,10 +31,8 @@ function showListing(data, listingId) {
   moreInfoBtn.innerHTML = 'More Info'
   moreInfoBtn.id = listingId
   moreInfoBtn.onclick = () => {
-    w = window.open(url=`Product.html?id=${listingId}`, 'target', 'popup')
+    w = window.open(url=`Product.html?id=${listingId}`)
   }
-    
-
 
   // Append title +image + button -> div -> container
   gridContainer = document.getElementById('grid-container')
@@ -63,6 +61,13 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
+
+function imgReady(obj) {
+  return obj.hasOwnProperty('imgUrl')
+}
+
+let newId = ''
 /* Fetching the data from the server and then converting it to JSON. */
 fetch('http://localhost:3000/listings')
   .then((response) => response.json())
@@ -70,7 +75,19 @@ fetch('http://localhost:3000/listings')
     testData = data;
 
     for (let id in data) {
-      showListing(data, id);
+
+      if (imgReady(data[id])) {
+        showListing(data, id);
+      }
+      else {
+        new_Id = id
+      }
     }
 
+  })
+
+fetch (`http://localhost:3000/showListing?id=${newId}`)
+  .then((response) => response.json())
+  .then((data) => {
+    showListing()
   })
