@@ -50,26 +50,19 @@ async function addImg(img, picid, db)
   return (imgName);
 }
 
+/**
+ * It takes a storage reference and a database reference and a picid and then it gets the download url
+ * of the image and then it updates the database with the download url.
+ * @param storage - firebase.storage.Storage
+ * @param picid - the id of the document in the database
+ * @param db - the database
+ */
 async function addImgUrl(storage, picid, db)
 {
   const docRef = doc(db, "listings", picid);
   console.log('picid is: ' + picid)
   await getDownloadURL(ref(storage, 'images/' + picid + '.png'))
   .then(async (url) => {
-    // // `url` is the download URL for 'images/stars.jpg'
-
-    // // This can be downloaded directly:
-    // const xhr = new XMLHttpRequest();
-    // xhr.responseType = 'blob';
-    // xhr.onload = (event) => {
-    //   const blob = xhr.response;
-    // };
-    // xhr.open('GET', url);
-    // xhr.send();
-
-    // // Or inserted into an <img> element
-    // const img = document.getElementById('myimg');
-    // img.setAttribute('src', url);
     console.log(url)
     await updateDoc(docRef, {
       imgUrl: url
@@ -78,5 +71,6 @@ async function addImgUrl(storage, picid, db)
   })
   .catch((error) => {
     // Handle any errors
+    console.log(error);
   });
 }

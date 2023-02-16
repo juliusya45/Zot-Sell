@@ -31,11 +31,6 @@ function onButtonClick(e) {
         //converts img to blob file
         bimg.encodedStr = event.target.result;
         bimg.encodedStr = _arrayBufferToBase64(bimg.encodedStr);
-        // console.log(bimg);
-        // var binaryString = await String.fromCharCode.apply(null, new Uint8Array(bimg.encodedStr));
-        // bimg.encodedStr = binaryString;
-        // bimg.encodedStr = btoa(bimg.encodedStr);
-        // console.log(bimg.encodedStr);
     };
     
     var input = document.querySelector('input[type=file]');;

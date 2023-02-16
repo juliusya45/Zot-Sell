@@ -46,8 +46,6 @@ async function main()
   //This adds data from listing to db
   appE.post('/addlisting', async (req, res) => {
     console.log(req.body);
-    //addListing(req.body);
-    //addListing in addlistingdb.js
     var sendInfo = await addListing(db, req.body)
     res.send(sendInfo);
   })
