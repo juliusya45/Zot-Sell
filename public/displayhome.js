@@ -24,6 +24,9 @@ function showListing(data, listingId) {
   // Create image
   let img = new Image(250, 200)
   img.src = imgUrl
+  if (imgUrl === undefined) {
+    img.src = 'placeholder.png'
+  }
 
   // Create button which navigates to new product page
   moreInfoBtn = document.createElement('button')
@@ -67,27 +70,16 @@ function imgReady(obj) {
   return obj.hasOwnProperty('imgUrl')
 }
 
-let newId = ''
 /* Fetching the data from the server and then converting it to JSON. */
 fetch('http://localhost:3000/listings')
   .then((response) => response.json())
   .then((data) => {
-    testData = data;
 
     for (let id in data) {
 
-      if (imgReady(data[id])) {
-        showListing(data, id);
-      }
-      else {
-        new_Id = id
-      }
+      showListing(data, id)
+      
+      
     }
 
-  })
-
-fetch (`http://localhost:3000/showListing?id=${newId}`)
-  .then((response) => response.json())
-  .then((data) => {
-    showListing()
   })
