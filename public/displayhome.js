@@ -1,4 +1,7 @@
-function showListing(listingObj) {
+function showListing(data, listingId) {
+
+  listingObj = data[listingId]
+
   let type = 'div'
   let itemTitle = listingObj.itemTitle
   let description = listingObj.description
@@ -7,9 +10,11 @@ function showListing(listingObj) {
 
   let textline = `${itemTitle}: ${description} | Price: ${price} | Contact: #${phoneNum}`
   type = document.createElement(type)
+  type.id = listingId
   displayTitle = document.createElement('h2')
   displayTitle.innerHTML = itemTitle
   displayTitle.classList.add('small-text')
+
   type.appendChild(displayTitle)
   document.getElementById('grid-container').appendChild(type)
 }
@@ -38,7 +43,7 @@ fetch('http://localhost:3000/listings')
     testData = data;
 
     for (let id in data) {
-      showListing(data[id]);
+      showListing(data, id);
     }
 
   })
