@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, waitForPendingWrites } from "firebase/firestore";
 import { handleListings } from './getlistings.js';
 import { addListing } from './addlistingdb.js';
+import { getListingById } from './getListingById.js';
 
 /* This is setting up the express server. */
 import express from 'express';
