@@ -15,7 +15,6 @@
     transform: translateY(-70%);
 }
 .product-imgbox{
-    background-image: url("https://image.artistshot.com/pd.147519743.55.1584309.s3.1-front-white-ffffff-none-x51.5y0-95-200x200.jpg");
     background-position: center;
     background-origin: content-box;
     background-repeat: no-repeat;
@@ -51,6 +50,10 @@
     margin-left: 25px;
     text-shadow:
     1px 1px 0 #000;
+}
+
+.info {
+    margin:5px;
 }
 
 .product-description{

@@ -84,15 +84,16 @@ fetch('http://localhost:3000/listings')
         showListing(data, id)
       }
       else {
+        console.log('late id:' + id)
         setTimeout(() => {
           console.log(id)
           fetch('http://localhost:3000/showItem?id=' + id)
           .then((response) => response.json())
           .then((data) => {
             console.log(data)
-            showListing(data, '', last=true)
+            showListing(data, id, last=true)
           })
-        }, 2000)
+        }, 2750)
         
         
       }
