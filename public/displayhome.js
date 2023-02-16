@@ -74,7 +74,7 @@ for (i = 0; i < dropdown.length; i++) {
 var lastId = 'missing'
 
 /* Fetching the data from the server and then converting it to JSON. */
-fetch('http://localhost:3000/listings')
+fetch('/listings')
   .then((response) => response.json())
   .then((data) => {
 
@@ -87,7 +87,7 @@ fetch('http://localhost:3000/listings')
         console.log('late id:' + id)
         setTimeout(() => {
           console.log(id)
-          fetch('http://localhost:3000/showItem?id=' + id)
+          fetch('/showItem?id=' + id)
           .then((response) => response.json())
           .then((data) => {
             console.log(data)

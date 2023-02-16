@@ -8,7 +8,7 @@ import { getListingById } from './getListingById.js'
 /* This is setting up the express server. */
 import express from 'express';
 const appE = express()
-const port = process.env.PORT || 3000;
+const port = 3000;
 import cors from 'cors';
 
 appE.use('/public', express.static('public'))
