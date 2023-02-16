@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 
 const id = urlParams.get('id')
 
-fetch(`http://localhost:3000/showItem?id=${id}`)
+fetch(`/showItem?id=${id}`)
   .then((response) => response.json())
   .then((data) => {
 
