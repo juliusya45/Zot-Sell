@@ -1,6 +1,11 @@
-function showListing(data, listingId) {
+function showListing(data, listingId='', last=false) {
 
-  listingObj = data[listingId]
+  if (last) {
+    listingObj = data
+  }
+  else {
+    listingObj = data[listingId]
+  }
 
   // Extract data
   let itemTitle = listingObj.itemTitle
@@ -66,10 +71,7 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
-
-function imgReady(obj) {
-  return obj.hasOwnProperty('imgUrl')
-}
+var lastId = 'missing'
 
 /* Fetching the data from the server and then converting it to JSON. */
 fetch('http://localhost:3000/listings')
@@ -78,10 +80,26 @@ fetch('http://localhost:3000/listings')
 
     for (let id in data) {
 
-      showListing(data, id)
+      if (data[id].hasOwnProperty('imgUrl')) {
+        showListing(data, id)
+      }
+      else {
+        setTimeout(() => {
+          console.log(id)
+          fetch('http://localhost:3000/showItem?id=' + id)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data)
+            showListing(data, '', last=true)
+          })
+        }, 2000)
+        
+        
+      }
       
     }
 
   })
+
 
   
