@@ -23,6 +23,9 @@ function anyValsMissing(li) {
 }
 
 function onButtonClick(e) {
+
+    console.log('btn clicked');
+
     if (e) {
         e.preventDefault();
     }
