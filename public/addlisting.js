@@ -113,6 +113,8 @@ function sendFormData(url='', data={})
         isAcceptable: isAcceptable
     };
 
+    console.log('Before fetch call');
+
     fetch('/addlisting', {
         method: 'POST',
         headers: {
