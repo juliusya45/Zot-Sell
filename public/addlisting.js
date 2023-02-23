@@ -24,8 +24,6 @@ function anyValsMissing(li) {
 
 function onButtonClick(e) {
 
-    console.log('btn clicked');
-
     if (e) {
         e.preventDefault();
     }
@@ -81,7 +79,6 @@ function onButtonClick(e) {
     
     if (!anyValsMissing(requiredVals)) {
         sendFormData();
-        // window.location.href = "index.html";
     } 
 }
 
@@ -126,8 +123,8 @@ function sendFormData(url='', data={})
         body: JSON.stringify(listing)  
     }).then(res => {
         console.log('res received')
+        window.location.href = "index.html";
     })
-    .then(data => console.log(data))
     .catch(error => console.log('Form POST error.'))
 
 }
