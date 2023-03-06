@@ -9,12 +9,14 @@
         .container2{
             background-color: aqua;
             max-width: 1440px;
-            display: inline-flex;   
+            display: inline-flex;
         }
         .main-header{
             background-color: #3b7097;
             color:darkgreen;
             height: 70px;
+            position: fixed;
+            width: 100%;
         }
         .main-headertext{
             color: white;
