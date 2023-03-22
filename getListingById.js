@@ -13,6 +13,7 @@ export function getListingById(db)
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
+        res.send("No such document!");
       }
   }
 }

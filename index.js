@@ -1,6 +1,6 @@
 //Getting required Firebase Libs
 import { initializeApp } from "firebase/app";
-import { getFirestore, waitForPendingWrites } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { handleListings } from './getlistings.js';
 import { addListing } from './addlistingdb.js';
 import { getListingById } from './getListingById.js';

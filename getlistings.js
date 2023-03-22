@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { query, orderBy, limit } from "firebase/firestore";  
+import { query, orderBy } from "firebase/firestore";  
 export function handleListings(db)
 {
     return async function(req, res)
