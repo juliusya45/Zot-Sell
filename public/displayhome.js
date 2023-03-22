@@ -28,11 +28,9 @@ function showListing(data, listingId='', last=false) {
 
   // Create image
   let img = new Image(250, 200)
-  if (imgUrl === undefined) {
-    img.src = 'placeholder.png'
-  } else {
-    img.src = imgUrl
-  }
+  console.log(imgUrl)
+  img.src = imgUrl
+  img.onerror = function(){img.src = 'placeholder.png'}
 
   // Create button which navigates to new product page
   moreInfoBtn = document.createElement('button')
